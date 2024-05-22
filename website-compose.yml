@@ -1,0 +1,27 @@
+version: '3.9'
+name: website
+
+services:
+  website:
+    build: ./app
+    container_name: website
+    hostname: website
+    ports:
+      - '82:80'
+    volumes:
+      - ./logs/:/app/logs
+    environment:
+      - SECRET_KEY=${APPS_SECRET_KEY}
+      - MCAUTH_CLIENT_ID=${MCAUTH_CLIENT_ID}
+      - MCAUTH_CLIENT_SECRET=${MCAUTH_CLIENT_SECRET}
+      - API_URL=http://api/
+    restart: always
+    networks:
+      - website
+      - api
+
+networks:
+  website:
+  api:
+    name: api_network
+    external: true

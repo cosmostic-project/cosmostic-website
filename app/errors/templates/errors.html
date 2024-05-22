@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>COSMOSTIC - {{ error.code }}</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('errors.static', filename='errors.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.home') }}"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="logo"></a>
+            <div class="menu"></div>
+            <button class="menu-button"></button>
+            <button class="toggle-theme-button">
+                <span id="dark-icon" class="material-symbols-outlined">nightlight</span>
+                <span id="light-icon" class="material-symbols-outlined" style="display: none;">light_mode</span>
+            </button>
+        </header>
+        <div class="container">
+            <img class="error-icon" src="{% if error.code == 404 %}{{ url_for('errors.static', filename='info.svg') }}{% else %}{{ url_for('errors.static', filename='server.svg') }}{% endif %}" alt="error illustration">
+            <h1>{{ error.code }} - {{ error.title }}</h1>
+            <p>{{ error.message }}</p>
+            <div>
+                <button onclick="window.location.href = '{{ url_for('home.home') }}'" {% if error.code == 404 %}style="--accent-color: #41bdfd;"{% else %}style="--accent-color: #df3b3b;"{% endif %} class="back-home-button">Go back home</button>
+                <button onclick="window.location.href = '{{ url_for('home.support') }}'" class="support-button">Contact support</button>
+            </div>
+        </div>
+        <img class="lines" src="{{ url_for('static', filename='lines.svg') }}" alt="decorations lines">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <script defer type="module" src="{{ url_for('static', filename='common-utils.js') }}"></script>
+        <script defer type="module" src="{{ url_for('static', filename='toggle-theme.js') }}"></script>
+    </body>
+</html>

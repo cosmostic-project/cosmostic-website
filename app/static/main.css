@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600');
+
+:root {
+    --background-color: white;
+    --base-color: black;
+    --underline-color: #ffe359;
+}
+
+.dark-mode {
+    --background-color: rgb(19, 22, 24);
+    --base-color: white;
+    --underline-color: #9a8108;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--base-color);
+    font-family: 'Poppins';
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--base-color);
+}
+
+p {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+button {
+    color: var(--base-color);
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10vh;
+}
+
+.toggle-theme-button {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.toggle-theme-button:hover {
+    transform: scale(1.1);
+}
+
+.toggle-theme-button span {
+    pointer-events: none;
+    transform: scale(1.2);
+}
+
+.underline {
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.underline::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 0.2em;
+    border-radius: 2px;
+    background-image: linear-gradient(90deg, rgb(171, 75, 6), rgb(188, 27, 27) 41.07%, rgb(21, 77, 140) 76.05%);
+}
+
+.highlight {
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0000 60%, var(--underline-color) 50%);
+    z-index: -1;
+}
+
+.logo {
+    width: 45px;
+}
+
+.menu-button {
+    display: none!important;
+    margin: auto;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: var(--base-color);
+    transform: scale(1.2);
+}
+
+.menu {
+    margin: auto;
+}
+
+.menu a { 
+    font-size: 17;
+    font-weight: 400;
+    margin: 0 1em;
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.menu a:after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--base-color);
+    transition: 300ms;
+}
+
+.menu a:hover:after {
+    width: 100%;
+}
+
+.menu a:not(:hover):after {
+    right: 0;
+    left: auto;
+}
+
+.rainbow-button {
+    animation: rainbow-outline 10s infinite;
+    font-size: 0.9em;
+    font-weight: 400;
+    background-color: var(--background-color);
+    color: var(--base-color);
+    border: 3px solid;
+    border-radius: 50px;
+    padding: 0.7em 1em;
+    outline: none;
+    cursor: pointer;
+}
+
+.rainbow-button:hover {
+    animation: rainbow-background 10s infinite;
+    padding: calc(0.7em + 3px) calc(1em + 3px);
+    color: white;
+    border: none;
+}
+
+.blink {
+    animation: blink 3s infinite;
+}
+
+.lines {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    z-index: -1;
+}
+
+@keyframes rainbow-outline {
+    0% {
+        border-color: #1abc9c;
+    }
+    10% {
+        border-color: #2ecc71;
+    }
+    20% {
+        border-color: #3498db;
+    }
+    30% {
+        border-color: #9b59b6;
+    }
+    40% {
+        border-color: #e74c3c;
+    }
+    50% {
+        border-color: #e67e22;
+    }
+    60% {
+        border-color: #f1c40f;
+    }
+    70% {
+        border-color: #2c3e50;
+    }
+    80% {
+        border-color: #9b59b6;
+    }
+}
+
+@keyframes rainbow-background {
+    0% {
+        background-color: #1abc9c;
+    }
+    10% {
+        background-color: #2ecc71;
+    }
+    20% {
+        background-color: #3498db;
+    }
+    30% {
+        background-color: #9b59b6;
+    }
+    40% {
+        background-color: #e74c3c;
+    }
+    50% {
+        background-color: #e67e22;
+    }
+    60% {
+        background-color: #f1c40f;
+    }
+    70% {
+        background-color: #2c3e50;
+    }
+    80% {
+        background-color: #9b59b6;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 11%;
+        right: 0%;
+        width: 80%;
+        margin: 0 10%;
+        background-color: var(--background-color);
+        border: 2px solid var(--base-color);
+        border-radius: 10px;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .menu.open {
+        top: 11%;
+        transition: all 0.2s ease;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .menu a {
+        margin: 0.5em auto;
+    }
+
+    .menu-button {
+        display: block!important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 60px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .lines {
+        transform: scale(-1, 1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 90%;
+        z-index: -1;
+        opacity: 0.6;
+    }
+}

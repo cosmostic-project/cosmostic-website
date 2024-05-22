@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COSMOSTIC - Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('dashboard.static', filename='dashboard.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.home') }}"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="logo"></a>
+            <div class="menu">
+                <a href="{{ url_for('home.discord') }}">Discord</a>
+                <a href="{{ url_for('home.docs') }}">Documentation</a>
+                <a href="{{ url_for('home.support') }}">Support</a>
+            </div>
+            <button class="menu-button material-symbols-outlined">menu</button>
+            <button onclick="window.location.href = '{{ url_for('home.download') }}'"class="rainbow-button">DOWNLOAD CLIENT</button>
+        </header>
+        <div class="container">
+            <div id="accessories-overview" class="card">
+                <h2>ACCESSORIES</h2>
+                <p><span class="underline">COSMOSTIC</span> account active accessories.</p>
+                <div id="active-accessories-preview"><span class="loading" style="font-style: italic;">loading...</span></div>
+                <button class="edit-button" onclick="window.location.href = '{{ url_for('dashboard.accessories') }}'">EDIT</button>
+            </div>
+            <div class="line" style="margin-top: 10vh;"></div>
+            <img style="height: 70vh;" src="https://starlightskins.lunareclipse.studio/render/default/{{ uuid }}/full?capeEnabled=false" alt="Minecraft account skin preview">
+            <div class="line" style="margin-top: -10vh;"></div>
+            <div id="cape-overview" class="card">
+                <h2>CAPE</h2>
+                <p><span class="underline">COSMOSTIC</span> account active cape.</p>
+                <div id="active-cape-preview"><span class="loading" style="font-style: italic;">loading...</span></div>
+                <button class="edit-button" onclick="window.location.href = '{{ url_for('dashboard.cape') }}'">EDIT</button>
+            </div>
+        </div>
+        <a class="logout" href="{{ url_for('auth.logout') }}">Logout</a>
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <script defer type="module" src="{{ url_for('static', filename='common-utils.js') }}"></script>
+        <script defer type="module" src="{{ url_for('dashboard.static', filename='dashboard.js') }}"></script>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<script type="module">
+            import { toast } from "{{ url_for('static', filename='common-utils.js') }}";
+            {% for category, message in messages %}
+            toast.{{ category }}("{{ message }}");{% endfor %}
+        </script> {% endif %} {% endwith %}
+    </body>
+</html>

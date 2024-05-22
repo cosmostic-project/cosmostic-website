@@ -1,0 +1,56 @@
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>COSMOSTIC - Home</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('home.static', filename='mobile.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.home') }}"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="logo"></a>
+            <div class="menu">
+                <a href="{{ url_for('home.discord') }}">Discord</a>
+                <a href="{{ url_for('home.about') }}">About</a>
+                <a href="{{ url_for('home.docs') }}">Documentation</a>
+            </div>
+            <button class="menu-button material-symbols-outlined">menu</button>
+            <button class="toggle-theme-button">
+                <span id="dark-icon" class="material-symbols-outlined">nightlight</span>
+                <span id="light-icon" class="material-symbols-outlined" style="display: none;">light_mode</span>
+            </button>
+        </header>
+        <div class="container">
+            <div class="title">
+                <h1>COSMOSTIC</h1>
+                <p>Get minecraft custom capes and cosmetics for free <span class="underline">without mods</span> !</p>
+            </div>
+            <div class="mobile-warning">
+                <h3>Mobile devices are currently <span class="highlight">not </span><span class="highlight">supported</span></h3>
+                <p>Please use a desktop computer to manage your account.</p>
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <div class="links">
+                <h2>Get started</h2>
+                <ul>
+                    <li><a href="{{ url_for('home.about') }}"><span class="highlight">Learn more</span> about <span class="underline">COSMOSTIC</span></a></li>
+                    <li><a href="{{ url_for('home.discord') }}">Join our <span class="highlight">Discord</span></a></li>
+                    <li><a href="{{ url_for('home.docs') }}"><span class="highlight">Read</span> the documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="lines" src="{{ url_for('static', filename='lines.svg') }}" alt="decorations lines">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <script defer type="module" src="{{ url_for('static', filename='common-utils.js') }}"></script>
+        <script defer type="module" src="{{ url_for('static', filename='toggle-theme.js') }}"></script>
+
+        <script>
+            import { toast } from "{{ url_for('static', filename='common-utils.js') }}";
+            toast.info("Hello, world!");
+        </script>
+    </body>
+</html>

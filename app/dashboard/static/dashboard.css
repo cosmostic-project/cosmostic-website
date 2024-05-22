@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.card {
+    border: var(--base-color) 3px solid;
+    border-radius: 1em;
+    padding: 1em;
+    max-width: 15em;
+}
+
+.card h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.card p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.card img {
+    margin: 10% 25%;
+    width: 50%;
+    image-rendering: pixelated;
+}
+
+#cape-overview {
+    margin-top: 20vh;
+    text-align: right;
+}
+
+#accessories-overview {
+    margin-top: -20vh;
+    text-align: left;
+}
+
+#active-accessories-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 200px;
+}
+
+#active-accessories-preview img {
+    height: 4em;
+    width: 4em;
+    margin: 1.1em 1em;
+}
+
+#active-cape-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+}
+
+.line {
+    height: 3px;
+    width: 12vw;
+    background-color: var(--base-color);
+}
+
+.edit-button {
+    font-size: 1.1em;
+    font-weight: 300;
+    width: 80%;
+    margin: 0% 10%;
+    padding: 0.5em;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    border: 3px solid var(--base-color);
+    border-radius: 0.7em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+    transform: scale(1.05);
+}
+
+.logout {
+    position: absolute;
+    bottom: 0.2rem;
+    left: 0.5rem;
+    font-size: 15px;
+    font-weight: 300;
+}

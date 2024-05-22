@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>COSMOSTIC - About</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('home.static', filename='about.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.home') }}"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="logo"></a>
+            <div class="menu">
+                <a href="{{ url_for('home.discord') }}">Discord</a>
+                <a href="{{ url_for('home.home') }}">Home</a>
+                <a href="{{ url_for('home.docs') }}">Documentation</a>
+            </div>
+            <button class="menu-button material-symbols-outlined">menu</button>
+            <button class="toggle-theme-button">
+                <span id="dark-icon" class="material-symbols-outlined">nightlight</span>
+                <span id="light-icon" class="material-symbols-outlined" style="display: none;">light_mode</span>
+            </button>
+        </header>
+        <div class="container">
+            <div class="about">
+                <h1>About</h1>
+                <p><span class="underline">COSMOSTIC</span> is an open source project designed to enhance your Minecraft experience by offering a wide range of cosmetic items and capes.</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h3><span class="material-symbols-outlined">download</span> Easy Installation</h3>
+                    <p>You just need to download the client and install it. All minecraft instance are now linked to your <span class="underline">COSMOSTIC</span> account.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="material-symbols-outlined">construction</span> Configuration Simplified</h3>
+                    <p><span class="underline">COSMOSTIC</span> offers an intuitive interface for easy configuration. Browse, choice and select in just a <span class="highlight">few clicks</span>.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="material-symbols-outlined">encrypted</span> Secure and Reliable</h3>
+                    <p>Accounts are <span class="highlight">safe and secure</span>, data are protected. The priority is to ensure a smooth experience.</p>
+                </div>
+            </div>
+        </div>
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <script defer type="module" src="{{ url_for('static', filename='common-utils.js') }}"></script>
+        <script defer type="module" src="{{ url_for('static', filename='toggle-theme.js') }}"></script>
+    </body>
+</html>

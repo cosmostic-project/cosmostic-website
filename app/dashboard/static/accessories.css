@@ -1,0 +1,126 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    margin-top: 5vh;
+}
+
+#accessories-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70vw;
+    overflow: scroll;
+}
+
+.accessory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    height: 13rem;
+    transition: 0.5s;
+}
+
+.accessory img {
+    margin: 0 4rem;
+    width: 150px;
+    image-rendering: pixelated;
+}
+
+.accessory label {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.accessory:hover {
+    transform: scale(1.1);
+}
+
+.accessory:hover > *:not(.add-button) {
+    filter: brightness(60%) blur(2px);
+}
+
+.accessory:hover > .add-button {
+    transition: 0.4s;
+    transform: scale(1);
+}
+
+.add-button {
+    font-size: 1.2em;
+    font-weight: 300;
+    z-index: 1;
+    transform: scale(0);
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    width: 40%;
+    height: 15%;
+    outline: none;
+    background: none;
+    border: white 4px solid;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+#selected-accessories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    border-right: var(--base-color) 3px solid;
+}
+
+.selected-accessory {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 3em;
+}
+
+.selected-accessory img {
+    height: 2em;
+    image-rendering: pixelated;
+}
+
+.selected-accessory label {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin: 0 1.2em;
+}
+
+.selected-accessory button {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: rgb(170, 16, 16);
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#save-button {
+    font-size: 1.1em;
+    font-weight: 300;
+    width: 10em;
+    padding: 0.5em;
+    margin-top: 1em;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    border: 3px solid var(--base-color);
+    border-radius: 0.7em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#save-button:hover {
+    background: var(--base-color);
+    color: var(--background-color);
+}

@@ -1,0 +1,6 @@
+# KEEP THIS DIRECTORY
+# This directory is used for storing logs
+
+# Ignore all files
+*
+!.gitignore

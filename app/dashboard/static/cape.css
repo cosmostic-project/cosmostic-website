@@ -1,0 +1,100 @@
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-top: 5rem;
+    padding-bottom: 10rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#capes-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 95vw;
+}
+
+.cape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+    transition: 0.5s;
+
+}
+
+.accessory label {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.cape img {
+    margin: 0 5rem;
+    width: 200px;
+    image-rendering: pixelated;
+}
+
+.cape:hover {
+    transform: scale(1.1);
+}
+
+.cape:hover > *:not(.select-button, .active-select-button) {
+    filter: brightness(60%) blur(2px);
+}
+
+.cape:hover > .select-button {
+    transition: 0.4s;
+    transform: scale(1);
+}
+
+.cape:hover > .active-select-button {
+    transition: 0.4s;
+    transform: scale(1);
+}
+
+.select-button {
+    font-size: 1.5em;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    z-index: 1;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    width: 40%;
+    height: 10%;
+    outline: none;
+    background: none;
+    border: white 4px solid;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+.active-select-button {
+    font-size: 1.5em;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(165, 165, 165);
+    transform: scale(0);
+    z-index: 1;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    width: 40%;
+    height: 10%;
+    outline: none;
+    background: none;
+    border: none;
+    cursor: not-allowed;    
+}

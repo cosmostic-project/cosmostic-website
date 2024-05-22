@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>COSMOSTIC - Home</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('home.static', filename='home.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.home') }}"><img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="logo"></a>
+            <div class="menu">
+                <a class="blink" href="{{ url_for('home.about') }}">About</a>
+                <a href="{{ url_for('home.discord') }}">Discord</a>
+                <a href="{{ url_for('home.docs') }}">Documentation</a>
+            </div>
+            <button class="menu-button material-symbols-outlined">menu</button>
+            <button class="toggle-theme-button">
+                <span id="dark-icon" class="material-symbols-outlined">nightlight</span>
+                <span id="light-icon" class="material-symbols-outlined" style="display: none;">light_mode</span>
+            </button>
+        </header>
+        <div class="container">
+            <h1>COSMOSTIC</h1>
+            <p>Get minecraft custom capes and cosmetics for free <span class="underline">without mods</span> !</p>
+            <button onclick="window.location.href = '{{ url_for('auth.login') }}'" class="signin">{% if not authenticated %}Sign in with <img src="{{ url_for('home.static', filename='mojang.svg') }}" alt="minecraft">{% else %}Go to dashboard <span class="material-symbols-outlined" style="padding-left: 10px;">dashboard</span>{% endif %}</button>
+        </div>
+        <img class="lines" src="{{ url_for('static', filename='lines.svg') }}" alt="decorations lines">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <script defer type="module" src="{{ url_for('static', filename='common-utils.js') }}"></script>
+        <script defer type="module" src="{{ url_for('static', filename='toggle-theme.js') }}"></script>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<script type="module">
+            import { toast } from "{{ url_for('static', filename='common-utils.js') }}";
+            {% for category, message in messages %}
+            toast.{{ category }}("{{ message }}");{% endfor %}
+        </script> {% endif %} {% endwith %}
+    </body>
+</html>
