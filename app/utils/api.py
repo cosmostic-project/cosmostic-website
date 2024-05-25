@@ -64,10 +64,10 @@ def _fetch_user_data(endpoint:str, user_uuid:str):
     """
     r = _make_api_request(f"user/{user_uuid}/{endpoint}", method='get')
     
-    if r is False or r.status_code not in (200, 422):
+    if r is False or r.status_code not in (200, 422, 404):
         return False
     
-    if r.status_code == 422:   # if no active item
+    if r.status_code == 422 or r.status_code == 404:   # if no active item or user not registered
         return "" if endpoint == "cape" else []
     
     return r.json()
