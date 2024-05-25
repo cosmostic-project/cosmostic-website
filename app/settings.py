@@ -26,7 +26,7 @@ class Config:
     DISCORD_URL = "https://discord.com/invite/m4Q8p3Bk"
     SUPPORT_URL = DISCORD_URL
     DOCS_URL = "https://cosmostic-project.github.io/cosmostic-docs/"
-    CLIENT_DOWNLOAD_URL = "https://cosmostic-project.github.io/cosmostic-docs/requirements/"
+    CLIENT_DOWNLOAD_URL = "https://cosmostic-project.github.io/cosmostic-docs/requirements"
 
     # Session
     SESSION_COOKIE_SECURE = True
