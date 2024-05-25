@@ -1,7 +1,7 @@
 FROM python:3.12.2-alpine
 
 # install dependencies
-RUN apk add libffi-dev
+RUN apk add gcc libc-dev libffi-dev
 
 # upgrade pip
 RUN pip install --upgrade pip
