@@ -23,7 +23,7 @@ class Config:
     API_URL = os.environ.get('API_URL', "http://localhost:81/")
 
     # external links
-    DISCORD_URL = "https://discord.com/invite/m4Q8p3Bk"
+    DISCORD_URL = "https://discord.gg/UAF6ceguFJ"
     SUPPORT_URL = DISCORD_URL
     DOCS_URL = "https://cosmostic-project.github.io/cosmostic-docs/"
     CLIENT_DOWNLOAD_URL = "https://cosmostic-project.github.io/cosmostic-docs/requirements"
